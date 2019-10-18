@@ -1,0 +1,44 @@
+input.info-value{
+    width: 90%;
+}
+
+.info > p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.info > p.field-error {
+    color: red;
+}
+
+.info > input.field-error {
+    box-shadow: 0 0 5px red;
+}
+
+.button-container {
+    width: 100%;
+    text-align: center;
+}
+
+form {
+    display: none;
+}
+
+@supports (display: grid) {
+	@media screen and (min-width: 850px) {
+		.content {
+			display: grid;
+			grid-template-columns: 2fr 1fr;
+			grid-gap: 10px;
+			grid-template-areas: "main side";
+		}
+
+		.main {
+			grid-area: main;
+		}
+
+		.side {
+			grid-area: side;
+		}
+	}
+}

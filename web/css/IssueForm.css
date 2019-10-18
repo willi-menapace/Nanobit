@@ -1,0 +1,14 @@
+
+.grid-info {
+	grid-area: info;
+}
+
+@media screen and (min-width: 500px) {
+	.grid-container {
+		display: grid;
+		grid-template-rows: auto auto;
+		grid-template-columns: 180px auto;
+		grid-template-areas: 	"title title"
+                                "image info"
+	}
+}

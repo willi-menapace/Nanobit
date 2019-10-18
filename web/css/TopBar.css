@@ -1,0 +1,154 @@
+/*
+    Author: Giuliani Daniele
+    Stile della barra superiore del sito
+*/
+
+.topBar {
+    text-align: center;
+    background-color: #16425b;
+    padding: 5px 10px 15px 10px;
+}
+
+.logo {
+    padding: 15px;
+    width: 310px;
+}
+
+.searchForm {
+    display: flex;
+    width: 100%;
+    margin: auto 2% auto auto;
+    min-width: 300px;
+}
+
+.menu {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    flex-grow: 1;
+    align-items: stretch;
+}
+
+.menu-item {
+	display: flex;
+	align-items: center;
+    padding: 8px;
+    margin: 2px;
+    border: 2px solid #1d5a7c;
+    border-radius: 15px;
+    color: #dce7eb;
+    background-color: #1d5a7c;
+}
+
+.menu-item:hover {
+    border: 2px #dce7eb solid;
+    background-color: #16425b;
+}
+
+.user-info {
+	font-size: 9pt;
+	color: #81c3d7;
+}
+
+@supports (display:grid) {
+    @media screen and (min-width: 850px) {
+        .topBar {
+            display: grid;
+            grid-template-columns: 1fr 4fr 1fr;
+            grid-template-areas:    "logo search menu";
+            align-items: center;
+        }
+
+        /*
+        Grid placement setup
+        */
+        .logoContainer {
+            grid-area: logo;
+        }
+
+        .searchForm {
+            grid-area: search;
+        }
+
+        .menu {
+            grid-area: menu;
+        }
+
+        /*
+        Item setup
+        */
+        .logo {
+            width: 230px;
+        }
+    }
+}
+
+.departmentSelect {
+    border: none;
+    border-radius: 10px 0px 0px 10px;
+    padding-left: 1%;
+    background-color: #dce7eb;
+    outline: none;
+    color: #666666;
+}
+
+.departmentSelect:hover {
+    background-color: #c6dbe2;
+}
+
+.searchInput {
+    border: none;
+    padding: 12px 20px;
+    width: 45%;
+    background-image: url('../resource/searchIcon.png');
+    background-position: 10px 50%;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    flex-grow: 2;
+}
+
+.searchInput:focus {
+    background-image: none;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+}
+
+.searchButton {
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+    background-color: #337ab7;
+    color: #dce7eb;
+    font-size: 11pt;
+}
+
+.searchButton:hover {
+    border: none;
+    background-color: #2e6da4;
+}
+
+/* Stile per il menu dropdown dell'autocomplete delle ItemSearchHint */
+.ui-autocomplete {
+    background: #FFFFFF;
+    border: 1px solid black;
+    border-top: none;
+}   
+
+.ui-menu {
+    list-style:none;
+    margin: 0;
+    padding: 0px;
+    float: left;
+    display:block;
+}
+
+.ui-menu-item {
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 13px;
+}
+
+.ui-menu-item:hover {
+    background-color: #337ab7;
+    cursor: pointer;
+}

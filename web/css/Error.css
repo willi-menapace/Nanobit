@@ -1,0 +1,13 @@
+/* 
+    Created on : 21-ago-2017, 13.51.11
+    Author     : alessio_paternoster
+*/
+.error-box {
+    display: flex;
+    align-items: center;
+}
+
+.error-icon {
+    margin-right: 20px;
+    flex-shrink: 0;
+}

@@ -1,0 +1,57 @@
+/*
+    Author: Giuliani Daniele
+*/
+
+.homepage {
+	padding: 20px;
+	border: 1px #dbdbdb solid;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.homepage li {
+	list-style-type: none;
+	padding: 15px;
+	border: 1px #dbdbdb solid;
+	border-radius: 10px;
+	margin: 5px;
+	font-size: 15pt;
+	color: #757575;
+}
+
+.homepage li:hover {
+	background: #3a7ca5;
+    color: white;
+}
+
+.department-grid {
+	padding: 0px;
+}
+
+/*
+Desktop mode
+*/
+@supports (display:grid) {
+	@media screen and (min-width: 850px) {
+		.department-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-auto-flow: row;
+			grid-gap: 10px;
+			padding: 0px;
+		}
+		.content li {
+			list-style-type: none;
+			padding: 50px;
+			border: 1px #dbdbdb solid;
+			border-radius: 10px;
+			font-size: 15pt;
+			color: #757575;
+		}
+		.title {
+		    font-family: "Source Sans Pro";
+            font-size: 32pt;
+            color: #919191;
+		}
+	}
+}

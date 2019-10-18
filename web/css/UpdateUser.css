@@ -1,0 +1,10 @@
+.inline-info {
+	display: flex;
+	align-items: flex-start;
+}
+
+.inline-elem {
+    display: flex;
+    flex-direction: column;
+    margin-right: 8px;
+}

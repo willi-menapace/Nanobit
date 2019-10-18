@@ -1,0 +1,197 @@
+/*
+    Created on : 10-ago-2017, 20.08.42
+    Author     : Alessio Paternoster
+*/
+body {
+    font-size: 14px;
+}
+
+button {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #3a7ca5;
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+    padding: 5px 15px;
+    font-size: 13px;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #2f6690;
+}
+
+div.reviews {
+    padding: 15px;
+    padding-top: 5px;
+}
+
+div.review {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+span.review-description, div.review-head > span {
+    display: block;
+}
+
+div.review-head > span {
+    display: inline-block;
+    font-weight: 600;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+span.review-description {
+    padding-top: 10px;
+}
+
+div.item-images-container {
+    grid-area: item-images-container;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+div.item-images-container > div {
+    width: 100%;
+    text-align: center;
+}
+
+div.item-image-slideshow {
+    max-width: 450px;
+    display: inline-block;
+}
+
+div.item-image-slideshow > img {
+    max-height: 300px;
+    display: none;
+    /*
+		width: 100%;
+		risolto problema distorsione immagini su chrome
+		*/
+		max-width:100%;
+		height: 100%;
+		width:auto;
+
+    margin: auto;
+}
+
+div.item-image-slideshow-nav {
+    margin-top: 5px;
+    text-align: center;
+}
+
+div.item-image-slideshow-nav > div.slideshow-nav-button-separator {
+    height: auto;
+    display: inline-block;
+}
+
+.item-info-container {
+    grid-area: item-info-container;
+    border: 1px #dbdbdb solid;
+	background-color: white;
+	border-radius: 10px;
+    height: 100%;
+}
+
+.item-availability-info span.available {
+    color: #069f06;
+    font-weight: 600;
+}
+
+.item-price-info > div > span {
+    vertical-align: middle;
+}
+
+.item-price-info > div > span.available {
+    font-size: 18px;
+}
+
+div.info-noborder {
+    margin: 10px;
+}
+
+.info-noborder > p, .info-noborder > div {
+    margin: 5px;
+}
+
+.item-vendor-info > div > span, .item-review-info > div > span {
+    vertical-align: middle;
+}
+
+.item-vendor-info > div.item-product-link a, .item-price-info > div > a {
+    text-decoration: none;    /* Rimuove la sottolineatura dei link */
+    font-weight: 700;
+}
+
+.item-price-info > div > a {
+    color: white !important;
+    background-color: #3a7ca5 !important;
+}
+
+.item-vendor-info > div.item-product-link a:hover, .item-price-info > div > a:hover {
+    cursor: pointer;
+}
+
+.item-vendor-info > div.item-product-link a:hover {
+    color: white !important;
+}
+
+.item-price-info > div > a:hover {
+    background-color: #16425b !important;
+}
+
+.item-vendor-info > div.item-product-link a.border-link-button {
+    padding: 2px 15px !important;
+}
+
+.item-price-info > div > a.border-link-button {
+    padding: 5px 15px !important;
+}
+
+.item-grid-container {
+    display: grid;
+    margin-top: 10px;
+    align-items: center;
+    grid-template-columns: 40% auto;
+    grid-template-areas: "item-images-container item-info-container"
+}
+
+/* Regole personalizzate per il dropdown menu */
+.dropdown-menu {
+    margin-left: 0px;
+    margin-right: 5px;
+}
+
+.dropdown-menu > .dropdown-menu-list {
+    min-width: 40px;
+}
+
+/* Regole per menu paginazione */
+.reviews-pagination-nav {
+    width: 100%;
+    text-align: center;
+}
+
+.reviews-pagination-nav > #reviews-pagination {
+    display: none;
+}
+
+@media only screen and (max-width: 700px) {
+
+    .item-images-container {
+        margin-bottom: 15px;
+    }
+
+    .item-grid-container {
+        display: grid;
+        align-items: center;
+        grid-template-columns: auto;
+        grid-template-rows: minmax(200px, auto) minmax(200px, auto);
+        grid-template-areas: "item-images-container"
+                             "item-info-container"
+    }
+
+}

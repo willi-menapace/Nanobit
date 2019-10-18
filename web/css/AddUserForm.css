@@ -1,0 +1,97 @@
+body {
+	text-align: center;
+	background-color: #16425b;
+}
+
+label {
+	color: #919191;
+	font-size: 11pt;
+}
+
+.container {
+    display: block;
+}
+
+.content {
+	margin: 5px;
+	background-color: white;
+	border: 1px #dbdbdb solid;
+	border-radius: 15px;
+	padding: 20px;
+	text-align: left;
+}
+
+.registration-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-group {
+	margin: 4px;
+	display: flex;
+	flex-direction: column;
+}
+
+.logo {
+	width: 200px;
+	padding: 20px;
+}
+
+.input-text {
+    border: #ecefe8 2px solid;
+    border-radius: 10px;
+    padding: 5px 5px;
+}
+
+.input-text:focus {
+    border: #3a7ca5 2px solid;
+    border-radius: 10px;
+    padding: 5px 5px;
+}
+
+.input-button {
+    border: #2f6690 3px solid;
+    border-radius: 10px;
+    background-color: #337ab7;
+    color: #d1e8f6;
+    font-size: 14pt;
+    padding: 10px;
+    width: 50%;
+}
+
+.input-button:hover {
+    border: #d1e8f6 3px solid;
+    background-color: #2e6da4;
+}
+
+.flex-centered {
+	align-items: center;
+}
+
+@supports (display:grid) {
+	@media screen and (min-width:850px) {
+		.container {
+			display: grid;
+			grid-template-rows: 1fr 5fr;
+			grid-template-areas:	"logo"
+                                    "content"
+		}
+
+		.content {
+			grid-area: content;
+			max-width: 650px;
+			margin-left: auto;
+			margin-right: auto;
+			min-width: 500px;
+		}
+
+		.logo-container {
+			grid-area: logo;
+			align-self: center;
+		}
+
+		.logo {
+			width: 320px;
+		}
+	}
+}

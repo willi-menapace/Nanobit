@@ -1,0 +1,157 @@
+/* 
+    Author     : Alessio Paternoster
+    Description: Foglio di stile per il file OrderOptions.jsp
+*/
+
+/* Ovveride stile Base.css*/
+.title2 {
+    font-size: 18px !important;
+}
+
+.info {
+    margin-top: 10px !important;
+}
+
+.info-value > span {
+    vertical-align: middle !important;
+}
+
+.message-info li {
+    padding: 5px 0px !important;
+}
+
+.dropdown-menu {
+    vertical-align: middle !important;
+    margin-left: 10px;
+}
+
+.dropdown-menu .dropdown-menu-list {
+    margin-top: 4px !important;
+}
+
+/* Stile pagina */
+.area-title {
+	grid-area: title;
+}
+
+.area-image {
+	grid-area: image;
+    padding: 5px;
+    padding-left: 20%;
+}
+
+.area-image img {
+    max-width: 100%;
+    max-height: 150px;
+}
+
+.area-info {
+	grid-area: info;
+    display: table;
+}
+
+.area-info > div {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.area-payment-info {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 50% 50%;
+    padding: 10px 50px;
+}
+
+@supports (display:grid) {
+    @media screen and (max-width: 950px) {
+        .area-payment-info {
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: 4fr;
+            padding: 10px 50px;
+        }
+    }
+}
+
+.area-payment-info p {
+    margin-left: 0px !important;
+}
+
+.area-payment-info label, .area-payment-info input {
+    vertical-align: middle;
+}
+
+.area-payment-info input.input-big {
+    width: 350px;
+}
+
+.area-payment-info input.input-little {
+    width: 50px;
+}
+
+.area-payment-info label.field-error, .info-value label.field-error {
+    color: red;
+    padding-left: 5px;
+    display: none;
+    vertical-align: middle;
+}
+
+.area-payment-info input.field-error {
+    box-shadow: 0 0 5px red;
+}
+
+.area-end-order {
+    display: table;
+    width: 100%;
+    text-align: center;
+}
+
+.area-end-order > div {
+    display: table-cell;
+    height: 100%;
+}
+
+.area-end-order > div > * {
+    display: inline;
+    vertical-align: middle;
+}
+
+.area-end-order > div > p.price {
+    padding-right: 10px;
+}
+
+.area-end-order button {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #3a7ca5;
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+    padding: 10px 30px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.area-end-order p {
+    font-size: 25px;
+}
+
+.order-info-item-grid-container {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 50% auto;
+    grid-template-areas: 	"title title"
+                            "image info";
+}
+
+/* Tolgo lo 'spinner' dai campi input di tipo number '*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}

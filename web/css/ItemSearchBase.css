@@ -1,0 +1,305 @@
+/*
+    Author      : Alessio Paternoster
+    Description : Foglio di stile per la pagina ItemSearchBase.css
+*/
+body {
+    font-size: 14px;
+}
+
+.content-box {
+    margin: 0px;
+    padding: 0px;
+}
+
+.catalog-pagenav > table {
+    table-layout: fixed;    /* Serve per avere tutte e 3 le colonne della tabella della medesima dimensione */
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.catalog-filterbar > table {
+    table-layout: fixed;    /* Serve per avere tutte le colonne della tabella della medesima dimensione */
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.catalog-filterbar > table td.catalog-filterbar-item {
+    text-align: center;
+}
+
+.filters-sidebar form {
+    padding: 12px;
+}
+
+.filters-sidebar form > .form-header {
+    color: #666666;
+    font-size: 16px;
+}
+
+.filters-sidebar #item-geocoding-radius-container {
+    display: none;
+}
+
+.filters-sidebar form > ul {
+    margin: 0px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 0px;
+    list-style: none;
+}
+
+.filters-sidebar form ul li > .filter-label {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.filters-sidebar form input.button {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #3a7ca5;
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+    padding: 10px 15px;
+    font-size: 13px;
+    border: none;
+}
+
+.filters-sidebar form input.button:hover {
+    cursor: pointer;
+    background-color: #2f6690;
+}
+
+.filters-sidebar form > ul > #item-geolocation-map-container {
+    display: none;
+}
+
+.filters-sidebar form > ul > li > div.item-price-info > div.row > span {
+    margin-left: 2px;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.filters-sidebar form > ul > li > div.item-price-info > div.row > input {
+    text-align: right
+}
+
+.filters-sidebar form > ul > li > div.item-price-info > div.row > #item-price-info {
+    font-weight: 500;
+    color: black;
+    font-size: 11px;
+    font-style: italic;
+    cursor: default;
+}
+
+.filters-sidebar form > ul > li > div.item-price-info > div.row > #item-price-info-error {
+    cursor: default;
+    font-weight: 600;
+    color: red;
+    font-size: 12px;
+    display: none;
+}
+
+.filters-sidebar form > ul > li > div.item-position-info > div.row > #map-info-label {
+    font-size: 11px;
+    color: black;
+    font-style: italic;
+    cursor: default;
+}
+
+.filters-sidebar form > ul > li > div.item-position-info > div.row > #google-position-map {
+    height: 200px;
+}
+
+.isb-entry{
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 4px;
+}
+
+a {
+	color: black;
+}
+
+/*Image container*/
+.item-image-container {
+    padding: 10px;
+    text-align: center;
+		height: 200px;
+}
+
+/*Image*/
+.item-image-container img {
+	min-width: 170px;
+	max-width: 100%;
+	max-height: 180px;
+}
+
+/*Price container*/
+.item-price-info-container {
+		padding: 0px 10px 10px 10px;
+		align-self: right;
+}
+
+/*Price*/
+.item-price-info-container span {
+    font-weight: 900;
+    font-size: 28px;
+}
+
+/*Info Container*/
+.item-info-container{
+	padding: 10px;
+}
+
+/*Title*/
+.item-info-container > .item-description-vendors h3 {
+    margin: 0px;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+/*Star Container*/
+.catalog-results > a > div > div.item-info-container > .item-star-review-info {
+    vertical-align: middle;
+    margin-top: 8px;
+}
+
+/*Star*/
+.catalog-results > a > div > div.item-info-container > .item-star-review-info span {
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+#item-results-paginaton {
+    display: none;
+}
+
+.row {
+    font-size: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    vertical-align: middle;
+}
+
+.row > label {
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+.row > label:hover {
+    cursor: pointer;
+}
+
+.row > label > input {
+    vertical-align: middle;
+    padding: 0px;
+    margin: 0px;
+    margin-right: 5px;
+}
+
+.row > label > ul {
+    vertical-align: middle;
+    margin-bottom: 2px;
+}
+
+.row > label > ul:hover {
+    cursor: pointer;
+}
+
+.row > label > span {
+    vertical-align: middle;
+}
+
+/* Regole per rimuovere le informazioni nel footer di Google MAPS embedded*/
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+
+/* Tolgo lo 'spinner' dai campi input di tipo number '*/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.topBar {
+    grid-area: header;
+}
+
+.filters-sidebar {
+    grid-area: filters-sidebar;
+}
+
+.catalog-filterbar {
+    grid-area: catalog-filterbar;
+}
+
+.catalog-results {
+    grid-area: catalog-results;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.catalog-pagenav {
+    grid-area: catalog-pagenav;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+/**
+    DA RIVEDERE TUTTE LE DIMENSIONI
+**/
+.catalog-container {
+    display: grid;
+    grid-area: catalog-container;
+    grid-template-columns: minmax(250px, auto);
+    grid-template-rows: minmax(30px, 45px) minmax(200px, auto) minmax(30px, 45px);
+    grid-template-areas: "catalog-filterbar"
+                         "catalog-results"
+                         "catalog-pagenav";
+}
+
+@media screen and (min-width: 800px) {
+	.content {
+    display: grid;
+	}
+
+	.isb-entry {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.item-price-info-container {
+		padding: 10px;
+		margin-bottom: auto;
+		margin-top: auto;
+		margin-right: 0px;
+		margin-left: auto;
+	}
+
+	.item-image-container {
+		text-align: center;
+		min-width: 200px;
+		max-width: 200px;
+	}
+}
+
+.content {
+    grid-gap: 5px;
+    grid-template-columns: 250px auto;
+    grid-template-areas: "filters-sidebar catalog-container"
+}

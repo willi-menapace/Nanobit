@@ -1,0 +1,103 @@
+<%--
+    Segment     : TopBar
+    Author      : Daniele Giuliani, Alessio Paternoster
+    Description : Segmento rappresentante la barra superiore del sito contenente la casella
+                  per la ricerca ed i pulsanti per l'accesso al profilo utente, registrazione e login.
+    Requirements: TopBar.css, TopBar.js, JQuery JS, JQuery UI JS, JQuery UI CSS
+--%>
+<%@page pageEncoding="UTF-8" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="it.webapp.applicationcontroller.ItemSearchBaseController" %>
+<%@page import="it.webapp.applicationcontroller.AuthenticationInfo" %>
+<%@page import="it.webapp.applicationcontroller.UserHubController" %>
+<%@page import="it.webapp.applicationcontroller.HomepageController" %>
+<%@page import="it.webapp.applicationcontroller.AuthenticatedUserInfo"%>
+<%@page import="it.webapp.applicationcontroller.CartController"%>
+<%@page import="it.webapp.applicationcontroller.LoginFormController"%>
+<%@page import="it.webapp.applicationcontroller.AddUserFormController"%>
+<%@page import="it.webapp.applicationcontroller.ItemSearchHintController"%>
+<%@page import="it.webapp.requestprocessor.LoginFormPreprocessor"%>
+<%@page import="it.webapp.requestprocessor.ItemSearchBasePreprocessor" %>
+<%@page import="it.webapp.requestprocessor.ItemSearchHintPreprocessor" %>
+<%@page import="it.webapp.view.ItemSearchBaseView" %>
+<%@page import="it.webapp.db.entities.Department" %>
+
+<% 
+    boolean userLogged = false;
+    String username = null;
+    
+    /* Preparo le informazioni per controllare poi se l'utente ha effettuato l'accesso o meno */
+    AuthenticationInfo userAuthInfo = (AuthenticationInfo) session.getAttribute(AuthenticationInfo.SESSION_ATTRIBUTE); 
+    if(userAuthInfo != null && userAuthInfo.isAuthenticated()){
+        userLogged = userAuthInfo.isAuthenticated();
+        username = userAuthInfo.getUsername();
+    }
+    
+    /* Rendo disponibili le informazioni nella pagina */
+    pageContext.setAttribute("userLogged", userLogged);
+    pageContext.setAttribute("username", username);
+%>
+
+<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="departements" value="<%= (Department[]) Department.values() %>"></c:set>
+<c:set var="currentPageControllerURI" value='<%= (String) (request.getAttribute("javax.servlet.forward.request_uri") + "?" + request.getQueryString()) %>' ></c:set>
+<c:set var="selectedDepartment" value='<%= (Department) request.getAttribute(ItemSearchBaseView.DEPARTMENT_ATTRIBUTE) %>' ></c:set>
+<c:set var="currentTerm" value="<%= (String) request.getAttribute(ItemSearchBaseView.TERM_ATTRIBUTE) %>"></c:set>
+
+<div class="topBar">
+    <a class="logoContainer" href="${contextPath}${HomepageController.URL}">
+        <img class="logo" src="${contextPath}/resource/logo.png">
+    </a>
+    <form method="POST" action="${contextPath}${ItemSearchBaseController.URL}" class="searchForm ui-widget">
+        <select name="${ItemSearchBasePreprocessor.DEPARTMENT_PARAM}" class="departmentSelect">
+            <option value="">Tutte le categorie</option>
+            <c:forEach items="${departements}" var="department">
+                <c:choose>
+                    <c:when test="${not empty selectedDepartment && selectedDepartment.ID eq department.ID}">
+                        <option value="${department.ID}" selected>${department.description}</option>
+                    </c:when>
+                    <c:otherwise>
+                        <option value="${department.ID}">${department.description}</option>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+        </select>
+        <c:choose>
+            <c:when test="${not empty currentTerm}">
+                <input type="text" class="form-text searchInput form-control" id="${ItemSearchBasePreprocessor.TERM_PARAM}" name="${ItemSearchBasePreprocessor.TERM_PARAM}" value="${currentTerm}" placeholder="Cerca..." />
+            </c:when>
+            <c:otherwise>
+                <input type="text" class="form-text searchInput form-control" id="${ItemSearchBasePreprocessor.TERM_PARAM}" name="${ItemSearchBasePreprocessor.TERM_PARAM}" placeholder="Cerca..." />
+            </c:otherwise>
+        </c:choose>
+        <button type="submit" class="btn-lg btn-primary searchButton">Cerca</button>
+    </form>
+    <div class="menu">
+        <c:choose>
+            <c:when test="${userLogged}">
+                <a href="${contextPath}${UserHubController.URL}" class="menu-item" style="min-width:95px">
+					<div>
+						<span class="user-info">${username}</span><br>
+						<span>Il mio account</span>
+					</div>
+				</a>
+				<a href="${contextPath}${CartController.URL}" class="menu-item">
+                    Carrello
+                </a>
+            </c:when>
+            <c:otherwise>
+                <a href="${contextPath}${LoginFormController.URL}?${LoginFormPreprocessor.REDIRECT_PARAMETER}=${currentPageControllerURI}" class="menu-item">Login</a>
+                <a href="${contextPath}${AddUserFormController.URL}" class="menu-item">Registrati</a>
+            </c:otherwise>
+        </c:choose>
+    </div>
+</div>
+
+<!-- Script -->
+<script>
+    // Inizializzazione variabili per script TopBar.js
+    var itemSearchHintControllerURL = "${contextPath}${ItemSearchHintController.URL}";
+    var itemSearchHintQueryParam = "${ItemSearchHintPreprocessor.QUERY_PARAM}";
+    var itemSearchHintCount = "${ItemSearchHintPreprocessor.COUNT_PARAM}";
+    var itemSearchHintInputObjectID = "#${ItemSearchBasePreprocessor.TERM_PARAM}";
+</script>

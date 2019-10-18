@@ -1,0 +1,32 @@
+<%--
+    Segment     : Footer
+    Author      : Daniele Giuliani
+    Description : Segmento rappresentante il footer del sito, contenete vari link e informaizoni.
+    Requirements: Footer.css
+
+    TODOS:
+        - inserire le informaizoni opportune nel footer, ricordarsi di usare "link-small"
+		  (o altro) in combinazione con "link-light" o "link-dark" come stile per i vari link
+--%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="footer">
+    <ul class="col1">
+        <li>Giuliani Daniele</li>
+        <li>Menapace Willi</li>
+        <li>Paternoster Alessio</li>
+        <li>Zanella Luca</li>
+    </ul>
+    <ul class="col2">
+        <a href="#" class="link-medium link-light"><li></li></a>
+        <a href="#" class="link-medium link-light"><li></li></a>
+        <a href="#" class="link-medium link-light"><li></li></a>
+        <a href="#" class="link-medium link-light"><li></li></a>
+        <a href="#" class="link-medium link-light"><li></li></a>
+    </ul>
+    <ul class="col3">
+        <li>Partita IVA - 0064029722</li>
+        <li>Telefono - 0492 795413</li>
+        <li>Copyright Nanobit.eu</li>
+        <li>nanobit@support.com</li>
+    </ul>
+</div>

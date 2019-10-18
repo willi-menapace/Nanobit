@@ -1,0 +1,26 @@
+/*
+    Author: Giuliani Daniele
+*/
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #0c2635;
+    color: #dfe4e7;
+    padding: 15px 0px;
+}
+
+@media screen and (max-width: 530px) {
+	.footer {
+		justify-content: flex-start;
+	}
+}
+
+.footer li {
+    list-style-type: none;
+    padding: 2px;
+
+		font-size: 12pt;
+		color: #81c3d7;
+}

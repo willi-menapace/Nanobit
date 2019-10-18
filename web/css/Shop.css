@@ -1,0 +1,178 @@
+/*
+    Author     : Alessio Paternoster, Daniele Giuliani
+*/
+div.info-noborder {
+    margin: 10px;
+}
+
+/* Regole per il box delle reviews */
+div.reviews {
+    padding: 15px;
+    padding-top: 5px;
+}
+
+div.review {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+span.review-description, div.review-head > span {
+    display: block;
+}
+
+div.review-head > span {
+    display: inline-block;
+    font-weight: 600;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+span.review-description {
+    padding-top: 10px;
+}
+
+/* Regole per paginazione delle reviews */
+.reviews-pagination-nav {
+    width: 100%;
+    text-align: center;
+}
+
+.reviews-pagination-nav > #reviews-pagination {
+    display: none;
+}
+
+div.info-noborder > p, div.info-noborder > div {
+    margin: 5px;
+}
+
+div.shop-review-info > div > span {
+    vertical-align: middle;
+}
+
+div.shop-title-header {
+    display: table;
+}
+
+div.shop-title-header > * {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+div.shop-title-header span {
+    width: 100%;
+}
+
+div.shop-title-header > div > div {
+    margin-left: 5px;
+}
+
+div.shop-title-header > div{
+    display: flex;
+}
+
+div.shop-title-header a {
+    width: 150px;
+}
+
+div.shop-images-container {
+    grid-area: shop-images-container;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+div.shop-images-container > div {
+    width: 100%;
+    text-align: center;
+}
+
+div.shop-image-slideshow {
+    max-width: 450px;
+    display: inline-block;
+}
+
+div.shop-image-slideshow > img {
+    max-height: 300px;
+    display: none;
+    max-width:100%;
+    height: 100%;
+    width:auto;
+    margin: auto;
+}
+
+div.shop-image-slideshow-nav {
+    margin-top: 5px;
+    text-align: center;
+}
+
+div.shop-image-slideshow-nav > div.slideshow-nav-button-separator {
+    height: auto;
+    display: inline-block;
+}
+
+div.shop-info-container {
+    grid-area: shop-info-container;
+    border: 1px #dbdbdb solid;
+	background-color: white;
+	border-radius: 10px;
+    height: 100%;
+}
+
+div #google-position-map {
+    height: 200px;
+    max-width: 400px;
+}
+
+/* Regole per rimuovere le informazioni nel footer di Google MAPS embedded*/
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+
+button {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #3a7ca5;
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+    padding: 5px 15px;
+    font-size: 13px;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #2f6690;
+}
+
+/*
+Desktop mode
+*/
+@supports (display:grid) {
+    .shop-grid-container {
+        display: grid;
+        margin-top: 10px;
+        align-items: center;
+        grid-template-columns: 40% auto;
+        grid-template-areas: "shop-images-container shop-info-container"
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .shop-images-container {
+        margin-bottom: 15px;
+    }
+
+    @supports (display:grid) {
+        .shop-grid-container {
+            display: grid;
+            align-items: center;
+            grid-template-columns: auto;
+            grid-template-rows: minmax(200px, auto) minmax(200px, auto);
+            grid-template-areas:    "shop-images-container"
+                                    "shop-info-container"
+        }
+    }
+}
